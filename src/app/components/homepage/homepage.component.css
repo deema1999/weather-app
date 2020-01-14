@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.current-weather {
+    display: flex;
+    justify-content: center;
+}
+#loc-name {
+    font-size: 20px;
+
+}
+
+#current-date {
+   
+}
+#current-temp {
+    
+}
+
+#icon {
+    
+    margin-top: -50px;
+}

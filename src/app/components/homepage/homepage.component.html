@@ -1,6 +1,37 @@
-<p>homepage works!</p>
-<div>{{weather.name}}</div>
-<div>{{weather.id}}</div>
-<div>{{weather.weather[0].main}}</div>
-<div>{{weather.weather[0].description}}</div>
-<div>{{weather.main.temp}}</div>
+<div class="container">
+    
+    <p class="current-weather" id="loc-name">{{weather.name}}</p> </div>
+    <img class="current-weather" id="icon" src="http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png" />
+    <div class="container">
+    <p class="current-weather" id="current-date">{{weather.dt*1000 | date:'EEEE , MMM d'}}</p>
+    <p class="current-weather" id="current-temp">{{weather.main.temp - 273.15 | number: '1.0-0'}} &#8451;</p>
+
+    </div>
+
+<div *ngFor="let f of forecast.list">
+    <p>{{f.dt*1000 | date:'MMM d, y, h:mm:ss a'}}</p>
+    <p>{{f.main.temp - 273.15 | number: '1.0-0'}}</p>
+</div>
+
+<!--<table>
+        <tr>
+            <td>Current Temp</td>
+            <td>{{weather.main.temp}}</td>
+        </tr>
+        <tr>
+            <td>Maximum Temp</td>
+            <td>{{weather.main.temp_max}}</td>
+        </tr>
+        <tr>
+            <td>Minimum Temp</td>
+            <td>{{weather.main.temp_min}}</td>
+        </tr>
+        <tr>
+            <td>Humidity</td>
+            <td>{{weather.main.humidity}}</td>
+        </tr>
+        <tr>
+            <td>Wind Speed</td>
+            <td>{{weather.wind.speed}}</td>
+        </tr>
+    </table>-->

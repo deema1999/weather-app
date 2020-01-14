@@ -1,7 +1,7 @@
 export interface IWeather {
     main: string,
     discription: string,
-    temp: number,
+    tem: number,
     humidity: number,
     pressure: number
 
