@@ -7,8 +7,9 @@ import { SearchByReigonComponent } from './components/search-by-reigon/search-by
 
 const routes: Routes = [
   { path:'', component:HomepageComponent },
-  { path:'homepage/:long/:latt', component:HomepageComponent },
+  { path:'homepage/:latt/:long', component:HomepageComponent },
   { path:'weatherdetails/:index', component:WeatherDetailsComponent },
+  { path:'weatherdetails/:index/:latt/:long', component:WeatherDetailsComponent },
   { path:'search', component:SearchByReigonComponent }
 ];
 

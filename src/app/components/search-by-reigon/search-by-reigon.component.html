@@ -9,7 +9,7 @@
 <div class="search-result">
      <ul *ngFor=" let reg of regions.list">
         <div *ngIf="reg.name | search: name ">
-            <li [routerLink]="[ '/homepage', reg.coord.lon , reg.coord.lat ]" (click)="changeRout()"><span>{{reg.name}}</span></li>
+            <li [routerLink]="[ '/homepage', reg.coord.lat , reg.coord.lon ]" (click)="changeRout()"><span>{{reg.name}}</span></li>
         </div>
     </ul>
 </div>

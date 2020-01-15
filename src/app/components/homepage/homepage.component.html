@@ -1,16 +1,16 @@
 
 <header>
-    <div class="header-icon"  [routerLink]="[ '/weatherdetails', 0 ]">&#x3f;</div>
-    <div class="header-icon"  [routerLink]="[ '/search']" ><span>Search</span></div>
+    <div class="header-icon"  [routerLink]="[ '/weatherdetails', 0 , forecast.city.coord.lat , forecast.city.coord.lon ]">&#x3f;</div>
+    <div class="header-icon"  [routerLink]="[ '/search' ]" ><span>Search</span></div>
 </header>
 <div class="container">
-    <div class="current-weather"><span id="loc-name">{{weather.name}}</span></div>
+    <div class="current-weather"><span id="loc-name">{{forecast.city.name}}</span></div>
     <!--<div class="current-weather"><span id="current-date">{{weather.dt*1000 | date:'EEEE , MMM d'}}</span></div>-->
     <div class="current-weather"><img id="icon"
             src="http://openweathermap.org/img/wn/{{forecast.list[0].weather[0].icon}}@2x.png" /></div>
     <div class="current-weather"><span id="current-temp">{{forecast.list[0].main.temp - 273.15 | number: '1.0-0'}}&#176;</span>
     </div>
-    <div class="current-weather"><span id="current-description">{{weather.weather[0].description}}</span></div>
+    <div class="current-weather"><span id="current-description">{{forecast.list[0].weather[0].description}}</span></div>
     <div class="current-weather"><span
             id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; / {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span>
     </div>
@@ -18,7 +18,7 @@
 <div class='container2' >
     <div *ngFor ="let f of forecast.list ;let i=index">
         <div class="forecast" *ngIf=" i%8 == 0 && i!=0">
-            <div class="forecast-weather" [routerLink]="[ '/weatherdetails', i ]"><span>&#x3f;</span></div>
+            <div class="forecast-weather" [routerLink]="[ '/weatherdetails', i ,forecast.city.coord.lat , forecast.city.coord.lon ]"><span>&#x3f;</span></div>
             <div class="forecast-weather"><span>{{f.dt*1000 | date:'EEE , MMM d'}}</span></div>
             <div class="forecast-weather"><span><img id="icon" src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png"/></span></div>
             <div class="forecast-weather"><span>{{f.main.temp_max - 273.15 | number: '1.0-0'}}<span>&#176;</span> / {{f.main.temp_min - 273.15 | number: '1.0-0'}}<span>&#176;</span></span></div>

@@ -10,28 +10,36 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class WeatherDetailsComponent implements OnInit {
 
-  
-  @Input() public in;
-  weatherd = {};
+  in: number;
   sub: any;
   lng: number;
   lat: number;
-  forecastd = {};
+  forecast = {};
 
   constructor(private route: ActivatedRoute,private weather: WeatherService) { }
 
-  ngOnInit() {
-    if (navigator) {
-          navigator.geolocation.getCurrentPosition( pos => {
-              this.lng = +pos.coords.longitude;
-              this.lat = +pos.coords.latitude;//console.log(this.lng); 
-              this.weatherd = this.weather.getCurrentWeather(this.lat , this.lng).subscribe(data => this.weatherd = data);
-              this.forecastd = this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecastd = data);
-            });
-          }
-      this.sub = this.route.params.subscribe(params => {
+  ngOnInit() { 
+    
+    this.sub = this.route.params.subscribe(params => {
       this.in = params['index'];console.log(this.in);
     });
+    
+    if(this.weather.getRout() == true) {
+      if (navigator) {
+            navigator.geolocation.getCurrentPosition( pos => {
+                this.lng = +pos.coords.longitude;
+                this.lat = +pos.coords.latitude;
+                this.forecast = this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+            });
+      }
+    }  
+     else { 
+      this.sub = this.route.params.subscribe(params => {
+        this.lng = params['long'];
+        this.lat = params['latt'];
+        this.forecast = this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+      });
+     }
   }
 
 }

@@ -11,12 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class HomepageComponent implements OnInit {
   lng: number;
   lat: number;
+  sub: any;
   weather = {};
   forecast = {};
-  date: any;
-  @Input() public long;
-  @Input() public latt;
-  sub: any;
 
   constructor(private route: ActivatedRoute,private currentWeather : WeatherService) { }
 
@@ -25,22 +22,16 @@ export class HomepageComponent implements OnInit {
       if (navigator) {
         navigator.geolocation.getCurrentPosition( pos => {
             this.lng = +pos.coords.longitude;
-            this.lat = +pos.coords.latitude;//console.log(this.lng); 
-            this.weather = this.currentWeather.getCurrentWeather(this.lat , this.lng).subscribe(data => this.weather = data);
+            this.lat = +pos.coords.latitude;
             this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
           });
     }
   }
   else {
          this.sub = this.route.params.subscribe(params => {
-          this.long = params['long'];
-          this.latt = params['latt'];
-          this.lng = this.long;
-          this.lat = this.latt; 
-          this.weather = this.currentWeather.getCurrentWeather(this.lat , this.lng).subscribe(data => this.weather = data);
+          this.lng = params['long'];
+          this.lat = params['latt'];
           this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
-            
-          
         });
     }
       
