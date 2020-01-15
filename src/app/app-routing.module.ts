@@ -6,7 +6,7 @@ import { SearchByReigonComponent } from './components/search-by-reigon/search-by
 
 
 const routes: Routes = [
-  { path:'homepage', component:HomepageComponent },
+  { path:'', component:HomepageComponent },
   { path:'homepage/:long/:latt', component:HomepageComponent },
   { path:'weatherdetails/:index', component:WeatherDetailsComponent },
   { path:'search', component:SearchByReigonComponent }
