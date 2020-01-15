@@ -1,2 +1,16 @@
-<p>search-by-reigon works!</p>
+
+<header>
+    <div class="back" [routerLink]="[ '/homepage' ]">&#9754;</div>
+</header>
+<div class="search-container">
+    <div class="search-element" id="search-name"><span>Search</span></div>
+    <div class="search-element"><input placeholder="Enter region name" [(ngModel)]="name"></div>
+</div>
+<div class="search-result">
+     <ul *ngFor=" let reg of regions.list">
+        <div *ngIf="reg.name | search: name ">
+            <li [routerLink]="[ '/homepage', reg.coord.lon , reg.coord.lat ]" (click)="changeRout()"><span>{{reg.name}}</span></li>
+        </div>
+    </ul>
+</div>
 
