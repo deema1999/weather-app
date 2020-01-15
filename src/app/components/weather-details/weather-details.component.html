@@ -1,5 +1,5 @@
 <header>
-        <div class="back" [routerLink]="[ '/homepage' , forecast.city.coord.lat , forecast.city.coord.lon ]">&#9755;</div>
+        <div class="back" [routerLink]="[ '/homepage' , forecast.city.coord.lat , forecast.city.coord.lon ]">></div>
 </header>
 <div *ngFor="let f of forecast.list ;let i=index">
         <div class="forecast" *ngIf="i == in">
