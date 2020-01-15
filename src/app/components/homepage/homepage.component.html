@@ -5,14 +5,10 @@
 </header>
 <div class="container">
     <div class="current-weather"><span id="loc-name">{{forecast.city.name}}</span></div>
-    <div class="current-weather"><img id="icon"
-            src="http://openweathermap.org/img/wn/{{forecast.list[0].weather[0].icon}}@2x.png" /></div>
-    <div class="current-weather"><span id="current-temp">{{forecast.list[0].main.temp - 273.15 | number: '1.0-0'}}&#176;</span>
-    </div>
+    <div class="current-weather"><img id="icon" src="http://openweathermap.org/img/wn/{{forecast.list[0].weather[0].icon}}@2x.png" /></div>
+    <div class="current-weather"><span id="current-temp">{{forecast.list[0].main.temp - 273.15 | number: '1.0-0'}}&#176;</span></div>
     <div class="current-weather"><span id="current-description">{{forecast.list[0].weather[0].description}}</span></div>
-    <div class="current-weather"><span
-            id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; / {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span>
-    </div>
+    <div class="current-weather"><span id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; / {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span></div>
 </div>
 <div class='container2' >
     <div *ngFor ="let f of forecast.list ;let i=index">
@@ -24,41 +20,3 @@
         </div>
     </div>
  </div>
-
-
-
-
-
-
-<!--<div *ngIf = " f.dt*1000 | date:'MMM d' == weather.dt*1000 | date:'MMM d'; else show">
-            <p>today</p>
-        </div>
-        <ng-template #show>
-                
-                  
-               
-              </ng-template>-->
-       
-
-<!--<table>
-        <tr>
-            <td>Current Temp</td>
-            <td>{{weather.main.temp}}</td>
-        </tr>
-        <tr>
-            <td>Maximum Temp</td>
-            <td>{{weather.main.temp_max}}</td>
-        </tr>
-        <tr>
-            <td>Minimum Temp</td>
-            <td>{{weather.main.temp_min}}</td>
-        </tr>
-        <tr>
-            <td>Humidity</td>
-            <td>{{weather.main.humidity}}</td>
-        </tr>
-        <tr>
-            <td>Wind Speed</td>
-            <td>{{weather.wind.speed}}</td>
-        </tr>
-    </table>-->
