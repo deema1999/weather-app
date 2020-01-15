@@ -12,6 +12,7 @@ export class HomepageComponent implements OnInit {
   lat: number;
   weather = {};
   forecast = {};
+  date: any;
 
   constructor(private currentWeather : WeatherService) { }
 
@@ -20,9 +21,10 @@ export class HomepageComponent implements OnInit {
     if (navigator) {
       navigator.geolocation.getCurrentPosition( pos => {
           this.lng = +pos.coords.longitude;
-          this.lat = +pos.coords.latitude;console.log(this.lng); 
+          this.lat = +pos.coords.latitude;//console.log(this.lng); 
           this.weather = this.currentWeather.getCurrentWeather(this.lat , this.lng).subscribe(data => this.weather = data);
           this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+          
         });
       }
     

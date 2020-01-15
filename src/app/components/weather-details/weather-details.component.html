@@ -1,1 +1,13 @@
 <p>weather-details works!</p>
+
+<div *ngFor="let f of weatherd.list ;let i=index">
+    <div *ngIf="datee === f.dt*1000 | date:'d'"></div>
+    <div class="forecast" *ngIf="i%8 == 0">
+        
+            <div class="forecast-weather"><span>{{f.dt*1000 | date:'EEE , MMM d'}}</span></div>
+            <div class="forecast-weather"><img id="icon"
+                    src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" /></div>
+            <div class="forecast-weather"><span>{{f.main.temp_max - 273.15 | number: '1.0-0'}}&#176; /
+                    {{f.main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span></div>
+        </div>
+    </div>

@@ -1,3 +1,13 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -12,14 +22,26 @@
 
 }
 
-#current-date {
-   
-}
 #current-temp {
-    
+    font-size: 60px;
 }
 
 #icon {
+    height: 60px;
+    width: 60px;
+}
+.container2 {
+  
+}
+.forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid black;
+}
+
+.forecast-weather {
+    display: flex;
+    align-items: center;
     
-    margin-top: -50px;
 }
