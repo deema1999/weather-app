@@ -21,7 +21,7 @@ export class WeatherDetailsComponent implements OnInit {
   ngOnInit() { 
     
     this.sub = this.route.params.subscribe(params => {
-      this.in = params['index'];console.log(this.in);
+      this.in = params['index'];
     });
     
     if(this.weather.getRout() == true) {
