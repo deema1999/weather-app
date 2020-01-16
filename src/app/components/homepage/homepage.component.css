@@ -16,9 +16,9 @@ header {
 }
 
 .forecast-weather {
-     background-color: #f5eeee;
-     border: 1px solid #eee;
-     border-radius: 20px;
+    background: rgba(255, 255, 255,0.5);
+    border: 1px solid #eee;
+    border-radius: 20px;
 }
 
 .forecast {
