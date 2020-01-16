@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { WeatherService } from 'src/app/weather.service';
 import { ActivatedRoute } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 
 @Component({
@@ -18,6 +19,9 @@ export class HomepageComponent implements OnInit {
   constructor(private route: ActivatedRoute,private currentWeather : WeatherService) { }
 
   ngOnInit() { 
+
+    document.body.className = "selector";
+
     if(this.currentWeather.getRout() == true) {
       if (navigator) {
         navigator.geolocation.getCurrentPosition( pos => {
@@ -33,10 +37,12 @@ export class HomepageComponent implements OnInit {
           this.lat = params['latt'];
           this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
         });
-    }
-      
-     
+    } 
     
+  }
+
+  ngOnDestroy(){
+    document.body.className="";
   }
   
 }

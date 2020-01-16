@@ -8,7 +8,7 @@
 }
 
 #search-name {
-    background: #e3f8f8;
+    background: #6b98ca;
     height: 30px;
     width: 50px;
     border-top-left-radius: 10px;
@@ -20,7 +20,7 @@ ul li {
     display: flex;
     justify-content: center;
     align-self: center;
-    background: #e3f8f8;
+    background: #f0f1f1;
     margin-left: 20px;
     border-radius: 10px;
     height: 30px;
@@ -29,7 +29,7 @@ ul li {
 
 ul li:hover {
     cursor: pointer;
-    background: #ffffff;
+    background: #6b98ca;
 }
 
 ul li span {
@@ -42,7 +42,7 @@ input {
     border-bottom-right-radius: 10px;
     border-style: solid;
     border-width:2px;
-    border-color:  #e3f8f8;
+    border-color:  #f2f3f3;
     height: 24px;
 
 }

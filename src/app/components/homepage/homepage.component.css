@@ -1,3 +1,8 @@
+
+app-homepage  {
+    width: 360;
+    height: 460;
+}
 header {
     display: flex;
     flex-direction: row;
@@ -9,19 +14,45 @@ header {
     align-items: center;
 }
 
+.root-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
 .container {
     display: flex;
     flex-direction: column;
-}
+    margin-top: 30px;
+ }
 
-.current-weather {
+.current-weather > div {
     display: flex;
     justify-content: center;
 }
 
+.forecast-weather {
+     background-color: rgb(206, 202, 202);
+     border: 1px solid rgb(238, 232, 232);
+     border-radius: 20px;
+}
+
+.forecast {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.forecast > div {
+    display: flex;
+    align-items: center;
+    
+    
+}
+
 #loc-name {
     font-size: 20px;
-
 }
 
 #current-temp {
@@ -33,26 +64,11 @@ header {
     width: 60px;
 }
 
-.forecast {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    
-}
 
-.forecast-weather {
-    display: flex;
-    align-items: center;
-    
-}
  img {
      width: 15px;
      height: 15px;
+     color: white;
  }
 
- .container2 {
-     background-color: rgb(206, 202, 202);
-     border: 1px solid rgb(238, 232, 232);
-     border-radius: 20px;
-     margin-top: 30px;
- }
+ 

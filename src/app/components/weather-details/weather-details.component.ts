@@ -20,6 +20,7 @@ export class WeatherDetailsComponent implements OnInit {
 
   ngOnInit() { 
     
+    document.body.className = "selector";
     this.sub = this.route.params.subscribe(params => {
       this.in = params['index'];
     });
@@ -42,4 +43,7 @@ export class WeatherDetailsComponent implements OnInit {
      }
   }
 
+  ngOnDestroy(){
+    document.body.className="";
+  }
 }
