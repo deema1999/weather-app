@@ -16,8 +16,6 @@ export class SearchByReigonComponent implements OnInit {
 
   ngOnInit() {
 
-    document.body.className = "selector";
-
     if (navigator) {
       navigator.geolocation.getCurrentPosition( pos => {
           this.lng = +pos.coords.longitude;
@@ -29,10 +27,6 @@ export class SearchByReigonComponent implements OnInit {
 
   changeRout() {
     this.currentWeather.setRout(false)
-  }
-
-   ngOnDestroy(){
-    document.body.className="";
   }
 
 }

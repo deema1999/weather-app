@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,11 @@ export class WeatherService {
   constructor(private http: HttpClient) { }
 
   getForcast(lat : number , lng : number) {
-    return this.http.get<string>(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&APPID=0a028a3d617067745e582919044c7f1b`);
+    return this.http.get<string>(`${environment.apiUrl}/forecast?lat=${lat}&lon=${lng}&${environment.appId}`);
   }
 
   getCloseRegions(lat : number , lng : number) {
-    return this.http.get<string>(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lng}&cnt=50&APPID=0a028a3d617067745e582919044c7f1b`)
+    return this.http.get<string>(`${environment.apiUrl}/find?lat=${lat}&lon=${lng}&cnt=50&${environment.appId}`)
   }
 
   getRout() {

@@ -20,8 +20,6 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() { 
 
-    document.body.className = "selector";
-
     if(this.currentWeather.getRout() == true) {
       if (navigator) {
         navigator.geolocation.getCurrentPosition( pos => {
@@ -41,8 +39,4 @@ export class HomepageComponent implements OnInit {
     
   }
 
-  ngOnDestroy(){
-    document.body.className="";
-  }
-  
 }

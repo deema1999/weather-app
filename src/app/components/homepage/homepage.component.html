@@ -1,23 +1,27 @@
-
 <header>
-    <div class="header-icon"  [routerLink]="[ '/weatherdetails', 0 , forecast.city.coord.lat , forecast.city.coord.lon ]">&#x3f;</div>
-    <div class="header-icon"  [routerLink]="[ '/search' ]" ><img src="./../../../assets/images/search-icon.png"></div>
+    <div class="header-icon"
+        [routerLink]="[ '/weatherdetails', 0 , forecast.city.coord.lat , forecast.city.coord.lon ]">&#x3f;</div>
+    <div class="header-icon" [routerLink]="[ '/search' ]"><img src="./../../../assets/images/search-icon.png"></div>
 </header>
 <div class="root-container">
-    <div class="container current-weather" >
+    <div class="container current-weather">
         <div><span id="loc-name">{{forecast.city.name}}</span></div>
         <div><img id="icon" src="http://openweathermap.org/img/wn/{{forecast.list[0].weather[0].icon}}@2x.png" /></div>
         <div><span id="current-temp">{{forecast.list[0].main.temp - 273.15 | number: '1.0-0'}}&#176;</span></div>
         <div><span id="current-description">{{forecast.list[0].weather[0].description}}</span></div>
-        <div><span id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; / {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span></div>
+        <div><span id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; /
+                {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span></div>
     </div>
     <div class="container forecast-weather">
-        <div *ngFor ="let f of forecast.list ;let i=index">
+        <div *ngFor="let f of forecast.list ;let i=index">
             <div class="forecast" *ngIf=" i%8 == 0 && i!=0">
-                <div [routerLink]="[ '/weatherdetails', i ,forecast.city.coord.lat , forecast.city.coord.lon ]"><span>&#x3f;</span></div>
+                <div [routerLink]="[ '/weatherdetails', i ,forecast.city.coord.lat , forecast.city.coord.lon ]">
+                    <span>&#x3f;</span></div>
                 <div><span>{{f.dt*1000 | date:'EEE , MMM d'}}</span></div>
-                <div><span><img id="icon" src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png"/></span></div>
-                <div><span>{{f.main.temp_max - 273.15 | number: '1.0-0'}}<span>&#176;</span> / {{f.main.temp_min - 273.15 | number: '1.0-0'}}<span>&#176;</span></span></div>
+                <div><span><img id="icon" src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" /></span>
+                </div>
+                <div><span>{{f.main.temp_max - 273.15 | number: '1.0-0'}}<span>&#176;</span> /
+                        {{f.main.temp_min - 273.15 | number: '1.0-0'}}<span>&#176;</span></span></div>
             </div>
         </div>
     </div>

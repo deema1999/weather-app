@@ -17,14 +17,14 @@ header {
 .root-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 70px;
  }
 
 .current-weather > div {
