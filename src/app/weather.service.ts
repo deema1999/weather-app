@@ -16,7 +16,7 @@ export class WeatherService {
   }
 
   getCloseRegions(lat : number , lng : number) {
-    return this.http.get<string>(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lng}&cnt=20&APPID=0a028a3d617067745e582919044c7f1b`)
+    return this.http.get<string>(`https://api.openweathermap.org/data/2.5/find?lat=${lat}&lon=${lng}&cnt=50&APPID=0a028a3d617067745e582919044c7f1b`)
   }
 
   getRout() {

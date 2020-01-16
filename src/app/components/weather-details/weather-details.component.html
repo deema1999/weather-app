@@ -2,7 +2,7 @@
         <div class="back" [routerLink]="[ '/homepage' , forecast.city.coord.lat , forecast.city.coord.lon ]">></div>
 </header>
 <div *ngFor="let f of forecast.list ;let i=index">
-        <div class="forecast" *ngIf=" i%8 == 0 && i == in">
+        <div class="forecast" *ngIf="i == in">
                 <div class="forecast-weather"><span id="date">{{forecast.city.name}}</span></div>
                 <div class="forecast-weather"><span id="date">{{f.dt*1000 | date:'EEE , MMM d'}}</span></div>
                 <div class="forecast-weather"><img id="icon" src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" /></div>
