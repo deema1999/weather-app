@@ -8,7 +8,7 @@ import { AgmCoreModule } from '@agm/core';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
 import { SearchByReigonComponent } from './components/search-by-reigon/search-by-reigon.component';
 import { FormsModule } from '@angular/forms';
-import { SearchPipe } from './search.pipe';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
