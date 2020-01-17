@@ -10,7 +10,7 @@ import { CombineLatestOperator } from 'rxjs/internal/observable/combineLatest';
 export class WeatherService {
 
   rout : boolean = true; 
-  
+
   constructor(private http: HttpClient) { }
 
   getForcast(lat : number , lng : number): Observable<any[]> {
@@ -18,7 +18,7 @@ export class WeatherService {
   }
 
   getCloseRegions(lat : number , lng : number , count: number): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiUrl}find?lat=${lat}&lon=${lng}&${count}&${environment.appId}`)
+    return this.http.get<any[]>(`${environment.apiUrl}find?lat=${lat}&lon=${lng}&cnt=${count}&${environment.appId}`)
   }
 
   getRout() {
