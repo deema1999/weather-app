@@ -10,6 +10,7 @@ import { DOCUMENT } from '@angular/common';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  
   lng: number;
   lat: number;
   sub: any;

@@ -7,11 +7,13 @@ import { WeatherService } from './../../services/weather.service';
   styleUrls: ['./search-by-reigon.component.css']
 })
 export class SearchByReigonComponent implements OnInit {
+  
   lng: number;
   lat: number;
   name: string = "";
   count : number = 50;
   public regions = {};
+
   constructor(private currentWeather : WeatherService) { }
 
   ngOnInit() {
