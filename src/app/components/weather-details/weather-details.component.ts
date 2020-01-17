@@ -33,13 +33,13 @@ export class WeatherDetailsComponent implements OnInit {
             });
       }
     }  
-     else { 
+    else { 
       this.sub = this.route.params.subscribe(params => {
         this.lng = params['long'];
         this.lat = params['latt'];
         this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
       });
-     }
+    }
   }
 
 }

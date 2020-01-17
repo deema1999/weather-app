@@ -9,9 +9,9 @@ import { WeatherService } from './../../services/weather.service';
 export class SearchByReigonComponent implements OnInit {
   lng: number;
   lat: number;
-  regions = {};
   name: string = "";
-
+  count : number = 50;
+  public regions = {};
   constructor(private currentWeather : WeatherService) { }
 
   ngOnInit() {
@@ -20,7 +20,7 @@ export class SearchByReigonComponent implements OnInit {
       navigator.geolocation.getCurrentPosition( pos => {
           this.lng = +pos.coords.longitude;
           this.lat = +pos.coords.latitude;
-          this.regions = this.currentWeather.getCloseRegions(this.lat , this.lng).subscribe(data => this.regions = data);
+          this.regions = this.currentWeather.getCloseRegions(this.lat , this.lng , this.count).subscribe(data => this.regions = data);
         });
       }
   }
