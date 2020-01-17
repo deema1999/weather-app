@@ -13,8 +13,7 @@ export class HomepageComponent implements OnInit {
   lng: number;
   lat: number;
   sub: any;
-  weather = {};
-  forecast = {};
+  public forecast = {};
 
   constructor(private route: ActivatedRoute,private currentWeather : WeatherService) { }
 
@@ -25,7 +24,7 @@ export class HomepageComponent implements OnInit {
         navigator.geolocation.getCurrentPosition( pos => {
             this.lng = +pos.coords.longitude;
             this.lat = +pos.coords.latitude;
-            this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+            this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
           });
     }
   }
@@ -33,7 +32,7 @@ export class HomepageComponent implements OnInit {
          this.sub = this.route.params.subscribe(params => {
           this.lng = params['long'];
           this.lat = params['latt'];
-          this.forecast = this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+          this.currentWeather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
         });
     } 
     

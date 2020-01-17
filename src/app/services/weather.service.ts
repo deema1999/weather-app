@@ -11,12 +11,12 @@ export class WeatherService {
   rout : boolean = true;
   constructor(private http: HttpClient) { }
 
-  getForcast(lat : number , lng : number) {
-    return this.http.get<string>(`${environment.apiUrl}/forecast?lat=${lat}&lon=${lng}&${environment.appId}`);
+  getForcast(lat : number , lng : number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/forecast?lat=${lat}&lon=${lng}&${environment.appId}`);
   }
 
-  getCloseRegions(lat : number , lng : number) {
-    return this.http.get<string>(`${environment.apiUrl}/find?lat=${lat}&lon=${lng}&cnt=50&${environment.appId}`)
+  getCloseRegions(lat : number , lng : number): Observable<any> {
+    return this.http.get<any>(`${environment.apiUrl}/find?lat=${lat}&lon=${lng}&cnt=50&${environment.appId}`)
   }
 
   getRout() {

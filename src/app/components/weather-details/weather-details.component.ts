@@ -14,7 +14,7 @@ export class WeatherDetailsComponent implements OnInit {
   sub: any;
   lng: number;
   lat: number;
-  forecast = {};
+  public forecast = {};
 
   constructor(private route: ActivatedRoute,private weather: WeatherService) { }
 
@@ -29,7 +29,7 @@ export class WeatherDetailsComponent implements OnInit {
             navigator.geolocation.getCurrentPosition( pos => {
                 this.lng = +pos.coords.longitude;
                 this.lat = +pos.coords.latitude;
-                this.forecast = this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+                this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
             });
       }
     }  
@@ -37,7 +37,7 @@ export class WeatherDetailsComponent implements OnInit {
       this.sub = this.route.params.subscribe(params => {
         this.lng = params['long'];
         this.lat = params['latt'];
-        this.forecast = this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
+        this.weather.getForcast(this.lat , this.lng).subscribe(data => this.forecast = data);
       });
      }
   }
