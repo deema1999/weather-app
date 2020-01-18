@@ -7,10 +7,12 @@
     <div class="search-element"><input placeholder="Enter region name" [(ngModel)]="name"></div>
 </div>
 <div class="search-result">
-     <ul *ngFor=" let reg of regions.list">
-        <div *ngIf="reg.name | search: name ">
-            <li [routerLink]="[ '/homepage', reg.coord.lat , reg.coord.lon ]" (click)="changeRout()"><span>{{reg.name}}</span></li>
-        </div>
-    </ul>
+     <div>
+         <ul *ngFor=" let reg of regions.list">
+            <div *ngIf="reg.name | search: name ">
+                <li [routerLink]="[ '/homepage', reg.coord.lat , reg.coord.lon ]" (click)="changeRout()"><span>{{reg.name}}</span></li>
+            </div>
+        </ul>
+    </div>
 </div>
 
