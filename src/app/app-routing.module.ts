@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { WeatherDetailsComponent } from './components/weather-details/weather-details.component';
 import { SearchByReigonComponent } from './components/search-by-reigon/search-by-reigon.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 const routes: Routes = [
-  { path:'', component:HomepageComponent },
+  { path:'', component:LoginComponent},
+  { path:'homepage', component:HomepageComponent },
   { path:'homepage/:latt/:long', component:HomepageComponent },
   { path:'weatherdetails/:index', component:WeatherDetailsComponent },
   { path:'weatherdetails/:index/:latt/:long', component:WeatherDetailsComponent },

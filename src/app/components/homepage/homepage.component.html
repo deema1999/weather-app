@@ -1,20 +1,19 @@
 <header>
     <div><img src="./../../../assets/images/rr.png"></div>
-    <div><span id="loc-name">{{forecast.city.name}}</span></div>
+    <div><span id="loc-name">{{forecastList[0].cityName}}</span></div>
     <div class="search-icon" [routerLink]="[ '/search' ]"><img src="./../../../assets/images/ser.png"></div>
 </header>
 <div class="root-container">
-    <div class="container current-weather" [routerLink]="[ '/weatherdetails', 0 , forecast.city.coord.lat , forecast.city.coord.lon ]">
-        <div><span id="current-temp">{{forecast.list[0].main.temp - 273.15 | number: '1.0-0'}}&#176;</span></div>
+    <div class="container current-weather" [routerLink]="[ '/weatherdetails', 0 , forecast?.city?.coord?.lat , forecast?.city?.coord?.lon ]">
+        <div><span id="current-temp">{{forecastList[0].currentTemp}}&#176;</span></div>
         <div><img id="icon" src="http://openweathermap.org/img/wn/{{forecast.list[0].weather[0].icon}}@2x.png" /></div>
         
-        <div><span id="current-description">{{forecast.list[0].weather[0].description}}</span></div>
-        <div><span id="current-minmax-temp">{{forecast.list[0].main.temp_max - 273.15 | number: '1.0-0'}}&#176; /
-                {{forecast.list[0].main.temp_min - 273.15 | number: '1.0-0'}}&#176;</span></div>
+        <div><span id="current-description">{{forecastList[0].description}}</span></div>
+        <div><span id="current-minmax-temp">{{forecastList[0].maxTemp}}&#176; / {{forecastList[0].minTemp}}&#176;</span></div>
     </div>
     <div class="container forecast-weather">
         <div *ngFor="let f of forecast.list ;let i=index">
-            <div class="forecast" *ngIf=" i%8 == 0 && i!=0" [routerLink]="[ '/weatherdetails', i ,forecast.city.coord.lat , forecast.city.coord.lon ]">
+            <div class="forecast" *ngIf=" i%8 == 0 && i!=0" [routerLink]="[ '/weatherdetails', i ,forecast?.city?.coord?.lat , forecast?.city?.coord?.lon ]">
                 <div><span>{{f.dt*1000 | date:'EEE , MMM d'}}</span></div>
                 <div><span><img id="icon" src="http://openweathermap.org/img/wn/{{f.weather[0].icon}}@2x.png" /></span>
                 </div>
