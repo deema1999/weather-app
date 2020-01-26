@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { WeatherService } from './../../services/weather.service';
 
 @Component({
@@ -13,9 +13,22 @@ export class SearchByReigonComponent implements OnInit {
   name: string = "";
   count : number = 50;
   public regions = {};
+ 
 
   constructor(private currentWeather : WeatherService) { }
-
+  
+  
+  @HostListener('window:scroll', ['$event']) getScrollHeight(event) {
+    console.log(window.pageYOffset);
+    let scrollPosition = Math.round(window.pageYOffset)
+    
+    if (scrollPosition > 100){
+      document.querySelector('header').classList.add('sticky');
+    }
+    else {
+      document.querySelector('header').classList.remove('sticky');
+    }
+  }
   ngOnInit() {
 
     if (navigator) {
@@ -24,11 +37,15 @@ export class SearchByReigonComponent implements OnInit {
           this.lat = +pos.coords.latitude;
           this.regions = this.currentWeather.getCloseRegions(this.lat , this.lng , this.count).subscribe(data => this.regions = data);
         });
-      }
+      } 
+      
+    
   }
+  //@ViewChild('search',{static :false})
 
   changeRout() {
     this.currentWeather.setRout(false)
   }
+ 
 
 }
