@@ -8,13 +8,13 @@ header {
     top: 0;
     left:0;
     right: 0;
-    padding: 10px 10px;
+    padding: 5px 5px;
     transition: padding 300ms ease;
    
 }
 
 header.sticky {
-    padding: 2px 10px;
+    padding: 1px 5px;
 }
 
 .search-container {
@@ -22,7 +22,6 @@ header.sticky {
     flex-direction: row;
     justify-content: center;
     padding-top: 10px;
-    border-bottom: 1px solid black;
     height: 40px;
    
 }

@@ -24,7 +24,7 @@
             <div *ngIf="f.password.errors.required">password is requiered</div>
             <div *ngIf="f.password.errors.minlength">password must at least 6 characters</div>
             <div *ngIf="f.password.errors.maxlength">password can maximum be 12 characters long</div>
-            <div *ngIf="f.password.errors.pattern">password does not match the pattern</div>
+            <div *ngIf="f.password.errors.pattern">password must contain at least one uppercase, one lowercase , one number and one special characters</div>
         </div>
     </div>
 

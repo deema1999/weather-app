@@ -13,15 +13,15 @@ export class LoginComponent implements OnInit {
   users = [
     {
       "email": "deema@pseu.edu",
-      "pass": "qqqqqqq"
+      "pass": "qqQ1*qq"
     },
     {
       "email": "lama@pseu.edu",
-      "pass": "rrrrrr"
+      "pass": "2*rRrr"
     },
     {
       "email": "ahmad@pseu.edu",
-      "pass": "eeeeeeee"
+      "pass": "eeeE$54ee"
     }
   ]
   userExist = false;
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       email: new FormControl('',[Validators.required,Validators.email,Validators.pattern(this.emailPattern)]),
-      password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(12),Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])/)]),
+      password: new FormControl('',[Validators.required,Validators.minLength(6),Validators.maxLength(12),Validators.pattern(/^(?=\D*\d)(?=[^a-z]*[a-z])(?=[^A-Z]*[A-Z])(?=.*?[#?!@$%^&*-])/)]),
   });
   }
 
@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit {
   onSubmit(userdata) {
 
     this.submitted = true;
-  
     // stop here if form is invalid
     if (this.form.invalid) {
         return;
